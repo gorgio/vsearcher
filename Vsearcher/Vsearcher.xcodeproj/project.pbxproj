@@ -15,7 +15,6 @@
 		1755BC1A18B4FC4A00CC2AB7 /* VSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC1918B4FC4A00CC2AB7 /* VSAppDelegate.m */; };
 		1755BC1D18B4FC4A00CC2AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1755BC1B18B4FC4A00CC2AB7 /* Main.storyboard */; };
 		1755BC2018B4FC4A00CC2AB7 /* VSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */; };
-		1755BC2218B4FC4A00CC2AB7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755BC2118B4FC4A00CC2AB7 /* Images.xcassets */; };
 		1755BC2918B4FC4A00CC2AB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC2818B4FC4A00CC2AB7 /* XCTest.framework */; };
 		1755BC2A18B4FC4A00CC2AB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC0918B4FC4A00CC2AB7 /* Foundation.framework */; };
 		1755BC2B18B4FC4A00CC2AB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC0D18B4FC4A00CC2AB7 /* UIKit.framework */; };
@@ -49,7 +48,6 @@
 		1755BC1C18B4FC4A00CC2AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1755BC1E18B4FC4A00CC2AB7 /* VSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSViewController.h; sourceTree = "<group>"; };
 		1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSViewController.m; sourceTree = "<group>"; };
-		1755BC2118B4FC4A00CC2AB7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1755BC2718B4FC4A00CC2AB7 /* VsearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VsearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1755BC2818B4FC4A00CC2AB7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1755BC3018B4FC4A00CC2AB7 /* VsearcherTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VsearcherTests-Info.plist"; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				1755BC1B18B4FC4A00CC2AB7 /* Main.storyboard */,
 				1755BC1E18B4FC4A00CC2AB7 /* VSViewController.h */,
 				1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */,
-				1755BC2118B4FC4A00CC2AB7 /* Images.xcassets */,
 				1755BC3E18B4FD0500CC2AB7 /* VSObject */,
 				1755BC1018B4FC4A00CC2AB7 /* Supporting Files */,
 			);
@@ -255,7 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1755BC2218B4FC4A00CC2AB7 /* Images.xcassets in Resources */,
 				1755BC1418B4FC4A00CC2AB7 /* InfoPlist.strings in Resources */,
 				1755BC1D18B4FC4A00CC2AB7 /* Main.storyboard in Resources */,
 			);

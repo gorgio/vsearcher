@@ -10,7 +10,9 @@
 #import "VSSearchCollectionViewCell.h"
 #import "VSResultCollectionViewCell.h"
 
-@interface VSCollectionViewController1 ()
+@interface VSCollectionViewController1 () <UISearchBarDelegate>
+
+@property(nonatomic)NSInteger firstCell;
 
 @end
 
@@ -23,6 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.firstCell = 0;
     }
     return self;
 }
@@ -43,7 +46,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     
-    return 1;
+    return 3;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -51,12 +54,25 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"SearchCellIdentifier";
-    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    static NSString *SearchCellIdentifier = @"SearchCellIdentifier";
+    static NSString *ResultCellIdentifier = @"ResultCellIdentifier";
+    UICollectionViewCell *cell;
+    if (self.firstCell == 0)
+    {
+        cell = [cv dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+        self.firstCell++;
+    }
+    else
+        cell = [cv dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
+
     return cell;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    
+    //NSLog(@"%@", searchBar.text);
+}
 
 
 @end

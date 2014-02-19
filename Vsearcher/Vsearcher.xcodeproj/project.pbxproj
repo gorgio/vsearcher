@@ -21,6 +21,8 @@
 		1755BC2B18B4FC4A00CC2AB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC0D18B4FC4A00CC2AB7 /* UIKit.framework */; };
 		1755BC3318B4FC4A00CC2AB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1755BC3118B4FC4A00CC2AB7 /* InfoPlist.strings */; };
 		1755BC3518B4FC4A00CC2AB7 /* VsearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC3418B4FC4A00CC2AB7 /* VsearcherTests.m */; };
+		1755BC4118B4FD2700CC2AB7 /* VSObjectSearchList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC4018B4FD2700CC2AB7 /* VSObjectSearchList.m */; };
+		1755BC4518B4FD4900CC2AB7 /* VSReleaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		1755BC3018B4FC4A00CC2AB7 /* VsearcherTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VsearcherTests-Info.plist"; sourceTree = "<group>"; };
 		1755BC3218B4FC4A00CC2AB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1755BC3418B4FC4A00CC2AB7 /* VsearcherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VsearcherTests.m; sourceTree = "<group>"; };
+		1755BC3F18B4FD2700CC2AB7 /* VSObjectSearchList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSObjectSearchList.h; sourceTree = "<group>"; };
+		1755BC4018B4FD2700CC2AB7 /* VSObjectSearchList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSObjectSearchList.m; sourceTree = "<group>"; };
+		1755BC4318B4FD4900CC2AB7 /* VSReleaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSReleaseObject.h; sourceTree = "<group>"; };
+		1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSReleaseObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 				1755BC1E18B4FC4A00CC2AB7 /* VSViewController.h */,
 				1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */,
 				1755BC2118B4FC4A00CC2AB7 /* Images.xcassets */,
+				1755BC3E18B4FD0500CC2AB7 /* VSObject */,
 				1755BC1018B4FC4A00CC2AB7 /* Supporting Files */,
 			);
 			path = Vsearcher;
@@ -150,6 +157,25 @@
 				1755BC3118B4FC4A00CC2AB7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1755BC3E18B4FD0500CC2AB7 /* VSObject */ = {
+			isa = PBXGroup;
+			children = (
+				1755BC3F18B4FD2700CC2AB7 /* VSObjectSearchList.h */,
+				1755BC4018B4FD2700CC2AB7 /* VSObjectSearchList.m */,
+				1755BC4218B4FD2D00CC2AB7 /* VSReleaseObject */,
+			);
+			name = VSObject;
+			sourceTree = "<group>";
+		};
+		1755BC4218B4FD2D00CC2AB7 /* VSReleaseObject */ = {
+			isa = PBXGroup;
+			children = (
+				1755BC4318B4FD4900CC2AB7 /* VSReleaseObject.h */,
+				1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */,
+			);
+			name = VSReleaseObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1755BC2018B4FC4A00CC2AB7 /* VSViewController.m in Sources */,
+				1755BC4518B4FD4900CC2AB7 /* VSReleaseObject.m in Sources */,
+				1755BC4118B4FD2700CC2AB7 /* VSObjectSearchList.m in Sources */,
 				1755BC1618B4FC4A00CC2AB7 /* main.m in Sources */,
 				1755BC1A18B4FC4A00CC2AB7 /* VSAppDelegate.m in Sources */,
 			);

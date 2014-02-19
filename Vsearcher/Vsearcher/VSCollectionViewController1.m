@@ -7,6 +7,8 @@
 //
 
 #import "VSCollectionViewController1.h"
+#import "VSSearchCollectionViewCell.h"
+#import "VSResultCollectionViewCell.h"
 
 @interface VSCollectionViewController1 ()
 
@@ -36,6 +38,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UICollectionView Datasource
+
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    
+    return 1;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"SearchCellIdentifier";
+    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+    return cell;
+}
+
+
 
 @end
 

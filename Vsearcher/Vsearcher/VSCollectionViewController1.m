@@ -32,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [VSObjectSearchList searchObjectDelegate:self];
+
+
 	// Do any additional setup after loading the view.
 }
 
@@ -49,6 +52,7 @@
         return 1;
     }
     else if (section == 1) {
+        //[VSObjectSearchList releaseCount];
         return [self.data count]; // section 1 : résultats
     }
     return 1;
@@ -92,6 +96,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [VSObjectSearchList searchInDiscogsDBWithString:searchBar.text];
     
 }
 
@@ -103,6 +108,27 @@
     
 }
 
+#pragma mark VSSearchList Delegate
+
+-(void)searchObjectStartSearch:(BOOL)nextPage{
+    if(nextPage){
+        NSLog(@"new page");
+    }
+    else{
+        NSLog(@"first page");
+    }
+}
+
+-(void)searchObjectFailSearch:(BOOL)nextPage withError:(NSString *)error{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"DISCOGS" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(void)searchObjectEndSearch:(BOOL)nextPage{
+    if(!nextPage){
+        [VSObjectSearchList nextPage];
+    }
+}
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VSCollectionViewController1 : UICollectionViewController
+@interface VSCollectionViewController1 : UICollectionViewController<VSSearchDelegate>
 @property(nonatomic) NSInteger *searchResults;
 
 @end

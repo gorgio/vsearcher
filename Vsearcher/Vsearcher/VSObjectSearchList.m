@@ -153,8 +153,6 @@ static VSObjectSearchList *sharedSearchList;
                 [searchResult addObject:releaseObject];
             }
         }
-        NSLog(@"%@",searchResult);
-        
     }
     return error;
 }
@@ -224,10 +222,6 @@ static VSObjectSearchList *sharedSearchList;
     }
 }
 
-
-////////////////////////////
-// OTEHRS
-////////////////////////////
 
 
 

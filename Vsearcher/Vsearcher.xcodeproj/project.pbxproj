@@ -163,7 +163,6 @@
 		1755BC0F18B4FC4A00CC2AB7 /* Vsearcher */ = {
 			isa = PBXGroup;
 			children = (
-				9B7C798B18B5FB450040267A /* images */,
 				E3716EE618B55CCB004A1238 /* VSCollectionView */,
 				1755BC1818B4FC4A00CC2AB7 /* VSAppDelegate.h */,
 				1755BC1918B4FC4A00CC2AB7 /* VSAppDelegate.m */,
@@ -354,13 +353,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B7C799518B5FCF40040267A /* photo3.jpg in Resources */,
 				1755BC1418B4FC4A00CC2AB7 /* InfoPlist.strings in Resources */,
-				9B7C799418B5FCF40040267A /* photo2.jpg in Resources */,
 				1755BC1D18B4FC4A00CC2AB7 /* Main.storyboard in Resources */,
-				9B7C798F18B5FB790040267A /* photo1.jpg in Resources */,
-				9B7C799618B5FCF40040267A /* photo4.jpg in Resources */,
-				9B7C799718B5FCF40040267A /* photo5.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,10 +517,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vsearcher/Vsearcher-Prefix.pch";
 				INFOPLIST_FILE = "Vsearcher/Vsearcher-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -536,10 +532,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vsearcher/Vsearcher-Prefix.pch";
 				INFOPLIST_FILE = "Vsearcher/Vsearcher-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

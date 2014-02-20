@@ -10,62 +10,21 @@
 #import "VSSearchCollectionViewCell.h"
 #import "VSResultCollectionViewCell.h"
 
-@interface VSCollectionViewController1 () <UISearchBarDelegate>
+@interface VSCollectionViewController1 () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property(nonatomic,retain) NSMutableArray *data; // tableau qui contient toutes les données de résultat
+@property (nonatomic, retain) NSMutableArray *scopeButton; // tableau qui contient les scopes de la barre de recherche
 
 @end
 
 @implementation VSCollectionViewController1
-
-@synthesize searchBar;
-
-@synthesize data = _data;
-
-
-
-
--(NSMutableArray*) data
-{
-    if(_data == nil)
-    {
-        
-        NSMutableArray* array = [[NSMutableArray alloc]init];
-        
-        NSInteger total = rand()%5000;
-        
-        for(NSInteger i = 0; i<total; i++)
-        {
-            [array addObject:[self genItem]];
-        }
-        _data = array;
-    }
-    
-    return _data;
-}
-
--(NSMutableDictionary*) genItem
-{
-    NSMutableDictionary *item = [NSMutableDictionary dictionary];
-    
-    NSString *titre_album = @"Test album";
-    NSString *artiste_album = @"Test artiste";
-    
-    
-    [item setValue:titre_album forKey:@"title"]; // titre
-    [item setValue:artiste_album forKey:@"description"]; // album
-    [item setValue:[NSString stringWithFormat:@"photo%d.jpg", (rand()%5)+1] forKey:@"image"]; // photo
-    
-    
-    return item;
-}
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.scopeButton = [NSMutableArray arrayWithObjects:@"Flags", @"Listeners", @"Stations", nil];
     }
     return self;
 }
@@ -73,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [VSObjectSearchList searchObjectDelegate:self];
+
+
 	// Do any additional setup after loading the view.
 }
 
@@ -90,6 +52,7 @@
         return 1;
     }
     else if (section == 1) {
+        //[VSObjectSearchList releaseCount];
         return [self.data count]; // section 1 : résultats
     }
     return 1;
@@ -103,7 +66,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    VSSearchCollectionViewCell *searchCell;
+
     
     static NSString *SearchCellIdentifier = @"SearchCellIdentifier";
     static NSString *ResultCellIdentifier = @"ResultCellIdentifier";
@@ -114,22 +78,57 @@
     
     if (indexPath.section == 0) // si on est dans la section recherche
     {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+        searchCell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+        searchCell.searchBar.placeholder = @"Recherche d'album par titre, n° catalogue...";
+        searchCell.searchBar.scopeButtonTitles = [NSMutableArray arrayWithObjects:@"Flags", @"Listeners", @"Stations", nil];
+        searchCell.searchBar.showsScopeBar = YES;
         
+        cell = searchCell;
     }
     else // si on est dans la section résultat
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
-    
+
     
     return cell;
 }
 
+#pragma mark UISearchBar delegate
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [VSObjectSearchList searchInDiscogsDBWithString:searchBar.text];
     
-    //NSLog(@"%@", searchBar.text);
 }
 
+
+#pragma mark UISearchDisplay delegate
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    
+}
+
+#pragma mark VSSearchList Delegate
+
+-(void)searchObjectStartSearch:(BOOL)nextPage{
+    if(nextPage){
+        NSLog(@"new page");
+    }
+    else{
+        NSLog(@"first page");
+    }
+}
+
+-(void)searchObjectFailSearch:(BOOL)nextPage withError:(NSString *)error{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"DISCOGS" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(void)searchObjectEndSearch:(BOOL)nextPage{
+    if(!nextPage){
+        [VSObjectSearchList nextPage];
+    }
+}
 
 @end
 

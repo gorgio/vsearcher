@@ -20,6 +20,47 @@
 
 @synthesize searchBar;
 
+@synthesize data = _data;
+
+
+
+
+-(NSMutableArray*) data
+{
+    if(_data == nil)
+    {
+        
+        NSMutableArray* array = [[NSMutableArray alloc]init];
+        
+        NSInteger total = rand()%5000;
+        
+        for(NSInteger i = 0; i<total; i++)
+        {
+            [array addObject:[self genItem]];
+        }
+        _data = array;
+    }
+    
+    return _data;
+}
+
+-(NSMutableDictionary*) genItem
+{
+    NSMutableDictionary *item = [NSMutableDictionary dictionary];
+    
+    NSString *titre_album = @"Test album";
+    NSString *artiste_album = @"Test artiste";
+    
+    
+    [item setValue:titre_album forKey:@"title"]; // titre
+    [item setValue:artiste_album forKey:@"description"]; // album
+    [item setValue:[NSString stringWithFormat:@"photo%d.jpg", (rand()%5)+1] forKey:@"image"]; // photo
+    
+    
+    return item;
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

@@ -22,6 +22,11 @@
 		1755BC3518B4FC4A00CC2AB7 /* VsearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC3418B4FC4A00CC2AB7 /* VsearcherTests.m */; };
 		1755BC4118B4FD2700CC2AB7 /* VSObjectSearchList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC4018B4FD2700CC2AB7 /* VSObjectSearchList.m */; };
 		1755BC4518B4FD4900CC2AB7 /* VSReleaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */; };
+		9B7C798F18B5FB790040267A /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C798E18B5FB790040267A /* photo1.jpg */; };
+		9B7C799418B5FCF40040267A /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C799018B5FCF40040267A /* photo2.jpg */; };
+		9B7C799518B5FCF40040267A /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C799118B5FCF40040267A /* photo3.jpg */; };
+		9B7C799618B5FCF40040267A /* photo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C799218B5FCF40040267A /* photo4.jpg */; };
+		9B7C799718B5FCF40040267A /* photo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C799318B5FCF40040267A /* photo5.jpg */; };
 		E3716EE318B54FF6004A1238 /* VSCollectionViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EE018B54FF6004A1238 /* VSCollectionViewController1.m */; };
 		E3716EE418B54FF6004A1238 /* VSCollectionViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EE218B54FF6004A1238 /* VSCollectionViewController2.m */; };
 		E3716EEF18B56183004A1238 /* VSSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EEE18B56183004A1238 /* VSSearchCollectionViewCell.m */; };
@@ -61,6 +66,11 @@
 		1755BC4018B4FD2700CC2AB7 /* VSObjectSearchList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSObjectSearchList.m; sourceTree = "<group>"; };
 		1755BC4318B4FD4900CC2AB7 /* VSReleaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSReleaseObject.h; sourceTree = "<group>"; };
 		1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSReleaseObject.m; sourceTree = "<group>"; };
+		9B7C798E18B5FB790040267A /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = photo1.jpg; path = Images/photo1.jpg; sourceTree = SOURCE_ROOT; };
+		9B7C799018B5FCF40040267A /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = photo2.jpg; path = Images/photo2.jpg; sourceTree = SOURCE_ROOT; };
+		9B7C799118B5FCF40040267A /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = photo3.jpg; path = Images/photo3.jpg; sourceTree = SOURCE_ROOT; };
+		9B7C799218B5FCF40040267A /* photo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = photo4.jpg; path = Images/photo4.jpg; sourceTree = SOURCE_ROOT; };
+		9B7C799318B5FCF40040267A /* photo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = photo5.jpg; path = Images/photo5.jpg; sourceTree = SOURCE_ROOT; };
 		E3716EDF18B54FF6004A1238 /* VSCollectionViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSCollectionViewController1.h; sourceTree = "<group>"; };
 		E3716EE018B54FF6004A1238 /* VSCollectionViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSCollectionViewController1.m; sourceTree = "<group>"; };
 		E3716EE118B54FF6004A1238 /* VSCollectionViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSCollectionViewController2.h; sourceTree = "<group>"; };
@@ -128,6 +138,7 @@
 		1755BC0F18B4FC4A00CC2AB7 /* Vsearcher */ = {
 			isa = PBXGroup;
 			children = (
+				9B7C798B18B5FB450040267A /* images */,
 				E3716EE618B55CCB004A1238 /* VSCollectionView */,
 				1755BC1818B4FC4A00CC2AB7 /* VSAppDelegate.h */,
 				1755BC1918B4FC4A00CC2AB7 /* VSAppDelegate.m */,
@@ -186,6 +197,18 @@
 				1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */,
 			);
 			name = VSReleaseObject;
+			sourceTree = "<group>";
+		};
+		9B7C798B18B5FB450040267A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9B7C799018B5FCF40040267A /* photo2.jpg */,
+				9B7C799118B5FCF40040267A /* photo3.jpg */,
+				9B7C799218B5FCF40040267A /* photo4.jpg */,
+				9B7C799318B5FCF40040267A /* photo5.jpg */,
+				9B7C798E18B5FB790040267A /* photo1.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		E3716EE618B55CCB004A1238 /* VSCollectionView */ = {
@@ -280,8 +303,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7C799518B5FCF40040267A /* photo3.jpg in Resources */,
 				1755BC1418B4FC4A00CC2AB7 /* InfoPlist.strings in Resources */,
+				9B7C799418B5FCF40040267A /* photo2.jpg in Resources */,
 				1755BC1D18B4FC4A00CC2AB7 /* Main.storyboard in Resources */,
+				9B7C798F18B5FB790040267A /* photo1.jpg in Resources */,
+				9B7C799618B5FCF40040267A /* photo4.jpg in Resources */,
+				9B7C799718B5FCF40040267A /* photo5.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

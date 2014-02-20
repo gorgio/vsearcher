@@ -18,8 +18,6 @@
 
 @implementation VSCollectionViewController1
 
-@synthesize searchBar;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,7 +60,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    VSSearchCollectionViewCell *searchCell;
+
     
     static NSString *SearchCellIdentifier = @"SearchCellIdentifier";
     static NSString *ResultCellIdentifier = @"ResultCellIdentifier";
@@ -73,12 +72,15 @@
     
     if (indexPath.section == 0) // si on est dans la section recherche
     {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+        searchCell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+        searchCell.searchBar.placeholder = @"Recherche d'album par titre, n° catalogue..."
+        ;
         
+        cell = searchCell;
     }
     else // si on est dans la section résultat
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
-    
+
     
     return cell;
 }

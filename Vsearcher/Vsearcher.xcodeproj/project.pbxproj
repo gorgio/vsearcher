@@ -14,7 +14,6 @@
 		1755BC1618B4FC4A00CC2AB7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC1518B4FC4A00CC2AB7 /* main.m */; };
 		1755BC1A18B4FC4A00CC2AB7 /* VSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC1918B4FC4A00CC2AB7 /* VSAppDelegate.m */; };
 		1755BC1D18B4FC4A00CC2AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1755BC1B18B4FC4A00CC2AB7 /* Main.storyboard */; };
-		1755BC2018B4FC4A00CC2AB7 /* VSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */; };
 		1755BC2918B4FC4A00CC2AB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC2818B4FC4A00CC2AB7 /* XCTest.framework */; };
 		1755BC2A18B4FC4A00CC2AB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC0918B4FC4A00CC2AB7 /* Foundation.framework */; };
 		1755BC2B18B4FC4A00CC2AB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC0D18B4FC4A00CC2AB7 /* UIKit.framework */; };
@@ -32,6 +31,11 @@
 		1755BC8618B5F09600CC2AB7 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC5D18B5F09600CC2AB7 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1755BC9718B5F12800CC2AB7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC9618B5F12800CC2AB7 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1755BC9918B5F22D00CC2AB7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755BC9818B5F22D00CC2AB7 /* libz.dylib */; };
+		1755BCAA18B62B7200CC2AB7 /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1755BCA518B62B7200CC2AB7 /* photo1.jpg */; };
+		1755BCAB18B62B7200CC2AB7 /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1755BCA618B62B7200CC2AB7 /* photo2.jpg */; };
+		1755BCAC18B62B7200CC2AB7 /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1755BCA718B62B7200CC2AB7 /* photo3.jpg */; };
+		1755BCAD18B62B7200CC2AB7 /* photo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1755BCA818B62B7200CC2AB7 /* photo4.jpg */; };
+		1755BCAE18B62B7200CC2AB7 /* photo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1755BCA918B62B7200CC2AB7 /* photo5.jpg */; };
 		E3716EE318B54FF6004A1238 /* VSCollectionViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EE018B54FF6004A1238 /* VSCollectionViewController1.m */; };
 		E3716EE418B54FF6004A1238 /* VSCollectionViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EE218B54FF6004A1238 /* VSCollectionViewController2.m */; };
 		E3716EEF18B56183004A1238 /* VSSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EEE18B56183004A1238 /* VSSearchCollectionViewCell.m */; };
@@ -60,8 +64,6 @@
 		1755BC1818B4FC4A00CC2AB7 /* VSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSAppDelegate.h; sourceTree = "<group>"; };
 		1755BC1918B4FC4A00CC2AB7 /* VSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSAppDelegate.m; sourceTree = "<group>"; };
 		1755BC1C18B4FC4A00CC2AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1755BC1E18B4FC4A00CC2AB7 /* VSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSViewController.h; sourceTree = "<group>"; };
-		1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSViewController.m; sourceTree = "<group>"; };
 		1755BC2718B4FC4A00CC2AB7 /* VsearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VsearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1755BC2818B4FC4A00CC2AB7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1755BC3018B4FC4A00CC2AB7 /* VsearcherTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VsearcherTests-Info.plist"; sourceTree = "<group>"; };
@@ -94,6 +96,11 @@
 		1755BC9518B5F12800CC2AB7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1755BC9618B5F12800CC2AB7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1755BC9818B5F22D00CC2AB7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1755BCA518B62B7200CC2AB7 /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
+		1755BCA618B62B7200CC2AB7 /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
+		1755BCA718B62B7200CC2AB7 /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo3.jpg; sourceTree = "<group>"; };
+		1755BCA818B62B7200CC2AB7 /* photo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo4.jpg; sourceTree = "<group>"; };
+		1755BCA918B62B7200CC2AB7 /* photo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo5.jpg; sourceTree = "<group>"; };
 		E3716EDF18B54FF6004A1238 /* VSCollectionViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSCollectionViewController1.h; sourceTree = "<group>"; };
 		E3716EE018B54FF6004A1238 /* VSCollectionViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSCollectionViewController1.m; sourceTree = "<group>"; };
 		E3716EE118B54FF6004A1238 /* VSCollectionViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSCollectionViewController2.h; sourceTree = "<group>"; };
@@ -163,12 +170,11 @@
 		1755BC0F18B4FC4A00CC2AB7 /* Vsearcher */ = {
 			isa = PBXGroup;
 			children = (
-				E3716EE618B55CCB004A1238 /* VSCollectionView */,
+				1755BC9A18B62B5800CC2AB7 /* IMAGES */,
 				1755BC1818B4FC4A00CC2AB7 /* VSAppDelegate.h */,
 				1755BC1918B4FC4A00CC2AB7 /* VSAppDelegate.m */,
 				1755BC1B18B4FC4A00CC2AB7 /* Main.storyboard */,
-				1755BC1E18B4FC4A00CC2AB7 /* VSViewController.h */,
-				1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */,
+				E3716EE618B55CCB004A1238 /* VSCollectionView */,
 				1755BC4918B5F06100CC2AB7 /* LIB */,
 				1755BC3E18B4FD0500CC2AB7 /* VSObject */,
 				1755BC1018B4FC4A00CC2AB7 /* Supporting Files */,
@@ -259,6 +265,18 @@
 				1755BC5E18B5F09600CC2AB7 /* ASIProgressDelegate.h */,
 			);
 			path = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		1755BC9A18B62B5800CC2AB7 /* IMAGES */ = {
+			isa = PBXGroup;
+			children = (
+				1755BCA518B62B7200CC2AB7 /* photo1.jpg */,
+				1755BCA618B62B7200CC2AB7 /* photo2.jpg */,
+				1755BCA718B62B7200CC2AB7 /* photo3.jpg */,
+				1755BCA818B62B7200CC2AB7 /* photo4.jpg */,
+				1755BCA918B62B7200CC2AB7 /* photo5.jpg */,
+			);
+			name = IMAGES;
 			sourceTree = "<group>";
 		};
 		E3716EE618B55CCB004A1238 /* VSCollectionView */ = {
@@ -353,8 +371,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1755BCAC18B62B7200CC2AB7 /* photo3.jpg in Resources */,
 				1755BC1418B4FC4A00CC2AB7 /* InfoPlist.strings in Resources */,
+				1755BCAB18B62B7200CC2AB7 /* photo2.jpg in Resources */,
 				1755BC1D18B4FC4A00CC2AB7 /* Main.storyboard in Resources */,
+				1755BCAA18B62B7200CC2AB7 /* photo1.jpg in Resources */,
+				1755BCAD18B62B7200CC2AB7 /* photo4.jpg in Resources */,
+				1755BCAE18B62B7200CC2AB7 /* photo5.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +396,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1755BC2018B4FC4A00CC2AB7 /* VSViewController.m in Sources */,
 				1755BC4518B4FD4900CC2AB7 /* VSReleaseObject.m in Sources */,
 				1755BC8418B5F09600CC2AB7 /* ASIHTTPRequest.m in Sources */,
 				1755BC4118B4FD2700CC2AB7 /* VSObjectSearchList.m in Sources */,

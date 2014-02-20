@@ -13,6 +13,7 @@
 @interface VSCollectionViewController1 () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property(nonatomic,retain) NSMutableArray *data; // tableau qui contient toutes les données de résultat
+@property (nonatomic, retain) NSMutableArray *scopeButton; // tableau qui contient les scopes de la barre de recherche
 
 @end
 
@@ -23,6 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.scopeButton = [NSMutableArray arrayWithObjects:@"Flags", @"Listeners", @"Stations", nil];
     }
     return self;
 }
@@ -73,8 +75,9 @@
     if (indexPath.section == 0) // si on est dans la section recherche
     {
         searchCell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
-        searchCell.searchBar.placeholder = @"Recherche d'album par titre, n° catalogue..."
-        ;
+        searchCell.searchBar.placeholder = @"Recherche d'album par titre, n° catalogue...";
+        searchCell.searchBar.scopeButtonTitles = [NSMutableArray arrayWithObjects:@"Flags", @"Listeners", @"Stations", nil];
+        searchCell.searchBar.showsScopeBar = YES;
         
         cell = searchCell;
     }
@@ -87,11 +90,15 @@
 
 #pragma mark UISearchBar delegate
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    
+}
 
 
 #pragma mark UISearchDisplay delegate
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
 {
     
 }

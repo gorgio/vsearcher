@@ -10,7 +10,7 @@
 #import "VSSearchCollectionViewCell.h"
 #import "VSResultCollectionViewCell.h"
 
-@interface VSCollectionViewController1 () <UISearchBarDelegate>
+@interface VSCollectionViewController1 () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property(nonatomic)NSInteger firstCell;
 
@@ -68,10 +68,15 @@
     return cell;
 }
 
+#pragma mark UISearchBar delegate
+
+
+
+#pragma mark UISearchDisplay delegate
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     
-    //NSLog(@"%@", searchBar.text);
 }
 
 

@@ -12,7 +12,7 @@
 
 @interface VSCollectionViewController1 () <UISearchBarDelegate>
 
-@property(nonatomic)NSInteger firstCell;
+@property(nonatomic,retain) NSMutableArray *data; // tableau qui contient toutes les données de résultat
 
 @end
 
@@ -20,12 +20,52 @@
 
 @synthesize searchBar;
 
+@synthesize data = _data;
+
+
+
+
+-(NSMutableArray*) data
+{
+    if(_data == nil)
+    {
+        
+        NSMutableArray* array = [[NSMutableArray alloc]init];
+        
+        NSInteger total = rand()%5000;
+        
+        for(NSInteger i = 0; i<total; i++)
+        {
+            [array addObject:[self genItem]];
+        }
+        _data = array;
+    }
+    
+    return _data;
+}
+
+-(NSMutableDictionary*) genItem
+{
+    NSMutableDictionary *item = [NSMutableDictionary dictionary];
+    
+    NSString *titre_album = @"Test album";
+    NSString *artiste_album = @"Test artiste";
+    
+    
+    [item setValue:titre_album forKey:@"title"]; // titre
+    [item setValue:artiste_album forKey:@"description"]; // album
+    [item setValue:[NSString stringWithFormat:@"photo%d.jpg", (rand()%5)+1] forKey:@"image"]; // photo
+    
+    
+    return item;
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.firstCell = 0;
     }
     return self;
 }
@@ -46,25 +86,41 @@
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     
-    return 3;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    if(section == 0) { // section 0 : barre de recherche
+        return 1;
+    }
+    else if (section == 1) {
+        return [self.data count]; // section 1 : résultats
+    }
     return 1;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 2; // deux section : une pour la recherche, une pour le résultat
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    
     static NSString *SearchCellIdentifier = @"SearchCellIdentifier";
     static NSString *ResultCellIdentifier = @"ResultCellIdentifier";
+    
+    
     UICollectionViewCell *cell;
-    if (self.firstCell == 0)
+    
+    
+    if (indexPath.section == 0) // si on est dans la section recherche
     {
-        cell = [cv dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
-        self.firstCell++;
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+        
     }
-    else
-        cell = [cv dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
-
+    else // si on est dans la section résultat
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
+    
+    
     return cell;
 }
 

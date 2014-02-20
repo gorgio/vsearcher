@@ -22,6 +22,10 @@
 		1755BC3518B4FC4A00CC2AB7 /* VsearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC3418B4FC4A00CC2AB7 /* VsearcherTests.m */; };
 		1755BC4118B4FD2700CC2AB7 /* VSObjectSearchList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC4018B4FD2700CC2AB7 /* VSObjectSearchList.m */; };
 		1755BC4518B4FD4900CC2AB7 /* VSReleaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */; };
+		E3716EE318B54FF6004A1238 /* VSCollectionViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EE018B54FF6004A1238 /* VSCollectionViewController1.m */; };
+		E3716EE418B54FF6004A1238 /* VSCollectionViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EE218B54FF6004A1238 /* VSCollectionViewController2.m */; };
+		E3716EEF18B56183004A1238 /* VSSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EEE18B56183004A1238 /* VSSearchCollectionViewCell.m */; };
+		E3716EF218B561B4004A1238 /* VSResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3716EF118B561B4004A1238 /* VSResultCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,14 @@
 		1755BC4018B4FD2700CC2AB7 /* VSObjectSearchList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSObjectSearchList.m; sourceTree = "<group>"; };
 		1755BC4318B4FD4900CC2AB7 /* VSReleaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSReleaseObject.h; sourceTree = "<group>"; };
 		1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSReleaseObject.m; sourceTree = "<group>"; };
+		E3716EDF18B54FF6004A1238 /* VSCollectionViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSCollectionViewController1.h; sourceTree = "<group>"; };
+		E3716EE018B54FF6004A1238 /* VSCollectionViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSCollectionViewController1.m; sourceTree = "<group>"; };
+		E3716EE118B54FF6004A1238 /* VSCollectionViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSCollectionViewController2.h; sourceTree = "<group>"; };
+		E3716EE218B54FF6004A1238 /* VSCollectionViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSCollectionViewController2.m; sourceTree = "<group>"; };
+		E3716EED18B56183004A1238 /* VSSearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSSearchCollectionViewCell.h; sourceTree = "<group>"; };
+		E3716EEE18B56183004A1238 /* VSSearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSSearchCollectionViewCell.m; sourceTree = "<group>"; };
+		E3716EF018B561B4004A1238 /* VSResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSResultCollectionViewCell.h; sourceTree = "<group>"; };
+		E3716EF118B561B4004A1238 /* VSResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSResultCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +128,7 @@
 		1755BC0F18B4FC4A00CC2AB7 /* Vsearcher */ = {
 			isa = PBXGroup;
 			children = (
+				E3716EE618B55CCB004A1238 /* VSCollectionView */,
 				1755BC1818B4FC4A00CC2AB7 /* VSAppDelegate.h */,
 				1755BC1918B4FC4A00CC2AB7 /* VSAppDelegate.m */,
 				1755BC1B18B4FC4A00CC2AB7 /* Main.storyboard */,
@@ -123,10 +136,6 @@
 				1755BC1F18B4FC4A00CC2AB7 /* VSViewController.m */,
 				1755BC3E18B4FD0500CC2AB7 /* VSObject */,
 				1755BC1018B4FC4A00CC2AB7 /* Supporting Files */,
-				9B65707818B5027A00C8CB7E /* VSCollectionViewController1.h */,
-				9B65707918B5027A00C8CB7E /* VSCollectionViewController1.m */,
-				9B65707B18B502AA00C8CB7E /* VSCollectionViewController2.h */,
-				9B65707C18B502AA00C8CB7E /* VSCollectionViewController2.m */,
 			);
 			path = Vsearcher;
 			sourceTree = "<group>";
@@ -177,6 +186,21 @@
 				1755BC4418B4FD4900CC2AB7 /* VSReleaseObject.m */,
 			);
 			name = VSReleaseObject;
+			sourceTree = "<group>";
+		};
+		E3716EE618B55CCB004A1238 /* VSCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E3716EDF18B54FF6004A1238 /* VSCollectionViewController1.h */,
+				E3716EE018B54FF6004A1238 /* VSCollectionViewController1.m */,
+				E3716EE118B54FF6004A1238 /* VSCollectionViewController2.h */,
+				E3716EE218B54FF6004A1238 /* VSCollectionViewController2.m */,
+				E3716EED18B56183004A1238 /* VSSearchCollectionViewCell.h */,
+				E3716EEE18B56183004A1238 /* VSSearchCollectionViewCell.m */,
+				E3716EF018B561B4004A1238 /* VSResultCollectionViewCell.h */,
+				E3716EF118B561B4004A1238 /* VSResultCollectionViewCell.m */,
+			);
+			name = VSCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,10 +300,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B65707D18B502AA00C8CB7E /* VSCollectionViewController2.m in Sources */,
 				1755BC2018B4FC4A00CC2AB7 /* VSViewController.m in Sources */,
 				1755BC4518B4FD4900CC2AB7 /* VSReleaseObject.m in Sources */,
 				1755BC4118B4FD2700CC2AB7 /* VSObjectSearchList.m in Sources */,
+				E3716EF218B561B4004A1238 /* VSResultCollectionViewCell.m in Sources */,
+				E3716EE318B54FF6004A1238 /* VSCollectionViewController1.m in Sources */,
+				E3716EE418B54FF6004A1238 /* VSCollectionViewController2.m in Sources */,
+				E3716EEF18B56183004A1238 /* VSSearchCollectionViewCell.m in Sources */,
 				1755BC1618B4FC4A00CC2AB7 /* main.m in Sources */,
 				1755BC1A18B4FC4A00CC2AB7 /* VSAppDelegate.m in Sources */,
 			);

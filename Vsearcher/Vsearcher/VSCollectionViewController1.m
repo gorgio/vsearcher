@@ -7,18 +7,25 @@
 //
 
 #import "VSCollectionViewController1.h"
+#import "VSSearchCollectionViewCell.h"
+#import "VSResultCollectionViewCell.h"
 
-@interface VSCollectionViewController1 ()
+@interface VSCollectionViewController1 () <UISearchBarDelegate>
+
+@property(nonatomic)NSInteger firstCell;
 
 @end
 
 @implementation VSCollectionViewController1
+
+@synthesize searchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.firstCell = 0;
     }
     return self;
 }
@@ -35,4 +42,38 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UICollectionView Datasource
+
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    
+    return 3;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *SearchCellIdentifier = @"SearchCellIdentifier";
+    static NSString *ResultCellIdentifier = @"ResultCellIdentifier";
+    UICollectionViewCell *cell;
+    if (self.firstCell == 0)
+    {
+        cell = [cv dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+        self.firstCell++;
+    }
+    else
+        cell = [cv dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
+
+    return cell;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    
+    //NSLog(@"%@", searchBar.text);
+}
+
+
 @end
+

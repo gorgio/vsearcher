@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VSCollectionViewController1 : UICollectionViewController
+@property (weak, nonatomic) IBOutlet UICollectionViewCell *searchBar;
 
 @end

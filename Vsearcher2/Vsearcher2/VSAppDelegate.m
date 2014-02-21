@@ -8,11 +8,18 @@
 
 #import "VSAppDelegate.h"
 
+
+
 @implementation VSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+//    [[NXOAuth2AccountStore sharedStore] setClientID:@"msnpkGhgvSqdRATURfgF"
+//                                             secret:@"xcCfFMwcIvwBgHEaBzkfIbyOJeGhnxUy"
+//                                   authorizationURL:[NSURL URLWithString:@"http://api.discogs.com/oauth/request_token"]
+//                                           tokenURL:[NSURL URLWithString:@"http://www.discogs.com/oauth/authorize"]
+//                                        redirectURL:[NSURL URLWithString:@"http://api.discogs.com/oauth/access_token"]
+//                                     forAccountType:@"myFancyService"];
     return YES;
 }
 							

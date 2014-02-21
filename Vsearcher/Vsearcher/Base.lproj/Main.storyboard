@@ -8,6 +8,7 @@
         <scene sceneID="fBP-SK-BE3">
             <objects>
                 <navigationController definesPresentationContext="YES" id="4Iu-V3-stj" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JXa-Os-ypb">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -22,7 +23,7 @@
         <!--Collection View Controller1-->
         <scene sceneID="LMc-e6-pwe">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="a6g-jZ-SBm" customClass="VSCollectionViewController1" sceneMemberID="viewController">
+                <collectionViewController id="a6g-jZ-SBm" customClass="VSCollectionViewController1" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="WxV-TZ-RTW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +115,7 @@
         <!--Collection View Controller2-->
         <scene sceneID="gfs-l1-RfI">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="zIs-Po-mV0" customClass="VSCollectionViewController2" sceneMemberID="viewController">
+                <collectionViewController id="zIs-Po-mV0" customClass="VSCollectionViewController2" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="oWU-oi-izD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

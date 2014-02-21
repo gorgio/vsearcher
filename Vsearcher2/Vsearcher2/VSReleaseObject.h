@@ -50,4 +50,11 @@
 
 -(id)initReleaseObjectWithDictionary:(NSDictionary*)releaseDictionary;
 
+-(NSURL*)pixogsURLOfRelease;
+
+-(NSString*)releaseCatNum;
+
+-(NSString*)releaseDateFormat;
+
+-(NSString*)releaseTitle;
 @end

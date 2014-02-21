@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VSReleaseObject.h"
 #import "ASIHTTPRequest.h"
 
 @protocol VSSearchDelegate <NSObject>

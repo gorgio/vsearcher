@@ -13,4 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#import "VSReleaseObject.h"
+#import "VSMasterObject.h"
+#import "VSObjectSearchList.h"
+
 #endif

@@ -105,7 +105,7 @@ static VSObjectSearchList *sharedSearchList;
     }
     else{
         
-        NSURL *searchUrl = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.discogs.com/database/search?q=%@&type=release",[searchString urlEncodeUsingEncoding:kCFStringEncodingUTF8]]];
+        NSURL *searchUrl = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.discogs.com/database/search?q=%@&type=master",[searchString urlEncodeUsingEncoding:kCFStringEncodingUTF8]]];
         [searchPagesURL addObject:searchUrl];
         ASIHTTPRequest *searchRequest = [[ASIHTTPRequest alloc]initWithURL:searchUrl];
         [searchRequest setDelegate:self];

@@ -37,14 +37,24 @@ static VSObjectSearchList *sharedSearchList;
     [sharedSearchList searchInDiscogsDBWithString:searchString];
 }
 
-+(VSReleaseObject*)releaseObjectAtIndex:(NSIndexPath*)indexPath{
++(VSMasterObject*)masterObjectAtIndex:(NSInteger)indexPath{
     if(sharedSearchList == nil) sharedSearchList = [[VSObjectSearchList alloc]init];
-    return [sharedSearchList releaseObjectAtIndex:indexPath];
+    return [sharedSearchList masterObjectAtIndex:indexPath];
 }
 
-+(NSInteger)releaseCount{
++(NSInteger)masterCount{
     if(sharedSearchList == nil) sharedSearchList = [[VSObjectSearchList alloc]init];
-    return [sharedSearchList releaseCount];
+    return [sharedSearchList masterCount];
+}
+
++(NSInteger)indexForMasterWithID:(NSInteger)masterID{
+    if(sharedSearchList == nil) sharedSearchList = [[VSObjectSearchList alloc]init];
+    return [sharedSearchList indexForMasterID:masterID];
+}
+
++(NSInteger)releaseCountForMasterAtIndex:(NSInteger)section{
+    if(sharedSearchList == nil) sharedSearchList = [[VSObjectSearchList alloc]init];
+    return [[sharedSearchList masterObjectAtIndex:section] releaseCount];
 }
 
 +(void)nextPage{
@@ -88,15 +98,20 @@ static VSObjectSearchList *sharedSearchList;
 ////////////////////////
 // TABLEVIEW METHODES //
 ////////////////////////
--(NSInteger)releaseCount{
+-(NSInteger)masterCount{
     return [searchResult count];
 }
 
--(VSReleaseObject*)releaseObjectAtIndex:(NSIndexPath*)indexPath{
-    if(indexPath.row < [searchResult count]){
-        return [searchResult objectAtIndex:indexPath.row];
+-(VSMasterObject*)masterObjectAtIndex:(NSInteger)indexPath{
+    if(indexPath < [searchResult count]){
+        return [searchResult objectAtIndex:indexPath];
     }
     return nil;
+}
+
++(VSReleaseObject*)releaseObjectAtIndex:(NSIndexPath*)indexPath{
+    VSMasterObject *master = [self masterObjectAtIndex:indexPath.section];
+    return [master relaseObjectAtIndex:indexPath.row];
 }
 
 -(void)searchInDiscogsDBWithString:(NSString*)searchString{
@@ -105,7 +120,7 @@ static VSObjectSearchList *sharedSearchList;
     }
     else{
         
-        NSURL *searchUrl = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.discogs.com/database/search?q=%@&type=release",[searchString urlEncodeUsingEncoding:kCFStringEncodingUTF8]]];
+        NSURL *searchUrl = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.discogs.com/database/search?q=%@&type=master",[searchString urlEncodeUsingEncoding:kCFStringEncodingUTF8]]];
         [searchPagesURL addObject:searchUrl];
         ASIHTTPRequest *searchRequest = [[ASIHTTPRequest alloc]initWithURL:searchUrl];
         [searchRequest setDelegate:self];
@@ -119,10 +134,19 @@ static VSObjectSearchList *sharedSearchList;
         NSLog(@"SEARCH DELEGATE IS NOT SET");
     }
     else{
-        ASIHTTPRequest *searchRequest = [[ASIHTTPRequest alloc]initWithURL:[searchPagesURL objectAtIndex:searchResultActualPage+1]];
-        [searchRequest setDelegate:self];
-        [searchRequest setTag:2];
-        [searchRequest startAsynchronous];
+        if(searchResultActualPage+1 > searchResultPage){
+            NSLog(@"last page");
+        }
+        else{
+            if(loadNextPage == NO){
+                loadNextPage = YES;
+                NSLog(@"load next page");
+                ASIHTTPRequest *searchRequest = [[ASIHTTPRequest alloc]initWithURL:[searchPagesURL objectAtIndex:searchResultActualPage+1]];
+                [searchRequest setDelegate:self];
+                [searchRequest setTag:2];
+                [searchRequest startAsynchronous];
+            }
+        }
     }
 }
 
@@ -139,24 +163,26 @@ static VSObjectSearchList *sharedSearchList;
             searchResultNumberFound = [[pagination objectForKey:@"items"] integerValue];
             searchResultPage = [[pagination objectForKey:@"pages"] integerValue];
             if([pagination objectForKey:@"urls"]){
-                NSURL *nextUrlPage = [[NSURL alloc]initWithString:[[pagination objectForKey:@"urls"] objectForKey:@"next"]];
-                [searchPagesURL addObject:nextUrlPage];
+                if([[pagination objectForKey:@"urls"] objectForKey:@"next"]){
+                    NSURL *nextUrlPage = [[NSURL alloc]initWithString:[[pagination objectForKey:@"urls"] objectForKey:@"next"]];
+                    [searchPagesURL addObject:nextUrlPage];
+                }
             }
         }
         if([searchResultDictionary objectForKey:@"results"]){
-            NSArray *releaseResult = [searchResultDictionary objectForKey:@"results"];
-            for (NSDictionary *releaseDictionary in releaseResult) {
-                VSReleaseObject *releaseObject = [[VSReleaseObject alloc]initReleaseObjectWithDictionary:releaseDictionary];
+            NSArray *masterResult = [searchResultDictionary objectForKey:@"results"];
+            for (NSDictionary *masterDictionary in masterResult) {
+                VSMasterObject *masterObject = [[VSMasterObject alloc]initMasterObjectWithDictionary:masterDictionary];
                 if(!searchResult){
                     searchResult = [[NSMutableArray alloc]init];
                 }
-                [searchResult addObject:releaseObject];
+                [masterObject getReleaseOfMaster];
+                [searchResult addObject:masterObject];
             }
         }
     }
     return error;
 }
-
 
 -(NSInteger)searchResultNumberFound{
     return searchResultNumberFound;
@@ -170,6 +196,24 @@ static VSObjectSearchList *sharedSearchList;
     return searchResultActualPage;
 }
 
+-(NSInteger)indexForMasterID:(NSInteger)masterID{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"masterID == %d",masterID];
+    NSArray *array = [searchResult filteredArrayUsingPredicate:predicate];
+    if([array count] == 0){
+        return 0;
+    }
+    else{
+        NSMutableArray *indexToReturn = [[NSMutableArray alloc]init];
+        VSMasterObject *master = [array objectAtIndex:0];
+        NSInteger section = [searchResult indexOfObject:[array objectAtIndex:0]];
+        for (int i = 0; i< [master releaseCount]; i++) {
+            NSIndexPath *index  = [NSIndexPath indexPathForItem:i inSection:section];
+            [indexToReturn addObject:index];
+        }
+        return [searchResult indexOfObject:master];
+    }
+}
+
 ///////////////////////////
 // ASI REQUEST DELEGATE  //
 ///////////////////////////
@@ -181,14 +225,17 @@ static VSObjectSearchList *sharedSearchList;
         [delegate searchObjectStartSearch:YES];
     }
 }
+
 -(void)requestFailed:(ASIHTTPRequest *)request{
     if(request.tag == 1){
         [delegate searchObjectFailSearch:NO withError:[[request error] description]];
     }
     if(request.tag == 2){
+        loadNextPage = NO;
         [delegate searchObjectFailSearch:YES withError:[[request error] description]];
     }
 }
+
 -(void)requestFinished:(ASIHTTPRequest *)request{
     if(request.tag == 1){
         if([request responseStatusCode] == 200){
@@ -206,6 +253,7 @@ static VSObjectSearchList *sharedSearchList;
         }
     }
     if(request.tag == 2){
+        loadNextPage = NO;
         if([request responseStatusCode] == 200){
             NSError *error = [self processSearchResultFound:[request responseData]];
             if(!error){

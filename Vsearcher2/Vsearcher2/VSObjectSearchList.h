@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VSMasterObject.h"
 #import "VSReleaseObject.h"
 #import "ASIHTTPRequest.h"
 
@@ -25,6 +26,7 @@
     NSInteger searchResultNumberFound;
     NSInteger searchResultPage;
     NSInteger searchResultActualPage;
+    BOOL loadNextPage;
 }
 @property(nonatomic,assign) id<VSSearchDelegate> delegate;
 
@@ -32,17 +34,22 @@
 ///////////////////////
 // ACCES METHODES    //
 ///////////////////////
-+(void)searchInDiscogsDBWithString:(NSString*)searchString; // permet de faire une recherche dans la bdd pour le nom d'une release
++(void)searchInDiscogsDBWithString:(NSString*)searchString; // permet de faire une recherche dans la bdd pour le nom d'une master
 
-+(VSReleaseObject*)releaseObjectAtIndex:(NSIndexPath*)indexPath; // permet d'obtenir une release en fonction d'un indexPath (section n'est pas prise en compte)
++(VSMasterObject*)masterObjectAtIndex:(NSInteger)indexPath; // permet d'obtenir une master en fonction d'un indexPath (section n'est pas prise en compte)
++(VSReleaseObject*)releaseObjectAtIndex:(NSIndexPath*)indexPath;
 
-+(NSInteger)releaseCount; //indique le nombre de releases dans la liste (chargés)
++(NSInteger)indexForMasterWithID:(NSInteger)masterID;
+
++(NSInteger)masterCount; //indique le nombre de masters dans la liste (chargés)
+
++(NSInteger)releaseCountForMasterAtIndex:(NSInteger)section;// indique le nombre de release chargées pour un master
 
 +(void)nextPage; // permet de lancer le chargement de la page suivante
 
 +(void)searchObjectDelegate:(id)delegate; // important la recherche ne fonctionne pas si non
 
-+(NSInteger)searchResultNumberFound;// indique le nombre de release total (toute le pages)
++(NSInteger)searchResultNumberFound;// indique le nombre de master total (toute le pages)
 
 +(NSInteger)searchResultPage;// indique le nombre de page total
 

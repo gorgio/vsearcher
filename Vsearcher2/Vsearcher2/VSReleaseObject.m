@@ -52,10 +52,14 @@
     if (self) {
         releaseID = [[releaseDictionary objectForKey:@"id"] integerValue];
         releaseCountryName = [releaseDictionary objectForKey:@"country"];
-        releaseYear = [releaseDictionary objectForKey:@"year"];
-        releaseStyles = [[NSMutableArray alloc]initWithArray:[releaseDictionary objectForKey:@"style"]];
-        releaseGenres = [[NSMutableArray alloc]initWithArray:[releaseDictionary objectForKey:@"genre"]];
-        releaseFormat = [[NSMutableArray alloc]initWithArray:[releaseDictionary objectForKey:@"format"]];
+        if([releaseDictionary objectForKey:@"released"]){
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"yyyy-MM-dd";
+            releaseDate = [formatter dateFromString:[releaseDictionary objectForKey:@"released"]];
+        }
+//        releaseStyles = [[NSMutableArray alloc]initWithArray:[releaseDictionary objectForKey:@"style"]];
+//        releaseGenres = [[NSMutableArray alloc]initWithArray:[releaseDictionary objectForKey:@"genre"]];
+        releaseFormat = [[NSMutableArray alloc]initWithArray:[[releaseDictionary objectForKey:@"format"] componentsSeparatedByString:@","]];
         releaseTitle = [releaseDictionary objectForKey:@"title"];
         releaseCatNum = [releaseDictionary objectForKey:@"catno"];
         releaseThumbURL = [releaseDictionary objectForKey:@"thumb"];
@@ -69,6 +73,23 @@
     return [NSString stringWithFormat:@"Release ID: %d Title: %@ Country: %@ Year: %@",releaseID,releaseTitle,releaseCountryName,releaseYear];
 }
 
+-(NSURL*)pixogsURLOfRelease{
+    NSString *thumbID = [[releaseThumbURL componentsSeparatedByString:@"/"] lastObject];
+    NSString *url = [NSString stringWithFormat:@"http://s.pixogs.com/image/%@",thumbID];
+    return [NSURL URLWithString:url];
+}
 
+-(NSString*)releaseCatNum{
+    return releaseCatNum;
+}
 
+-(NSString*)releaseDateFormat{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    return [formatter stringFromDate:releaseDate];
+}
+
+-(NSString*)releaseTitle{
+    return releaseTitle;
+}
 @end

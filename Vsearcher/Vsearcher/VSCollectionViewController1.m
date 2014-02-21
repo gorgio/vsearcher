@@ -12,7 +12,6 @@
 
 @interface VSCollectionViewController1 () <UISearchBarDelegate, UISearchDisplayDelegate>
 
-@property(nonatomic,retain) NSMutableArray *data; // tableau qui contient toutes les données de résultat
 @property (nonatomic, retain) NSMutableArray *scopeButton; // tableau qui contient les scopes de la barre de recherche
 
 @end
@@ -23,7 +22,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         self.scopeButton = [NSMutableArray arrayWithObjects:@"Flags", @"Listeners", @"Stations", nil];
     }
     return self;
@@ -34,8 +32,6 @@
     [super viewDidLoad];
     [VSObjectSearchList searchObjectDelegate:self];
 
-
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,14 +42,15 @@
 
 #pragma mark - UICollectionView Datasource
 
+
+
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     
     if(section == 0) { // section 0 : barre de recherche
         return 1;
     }
     else if (section == 1) {
-        //[VSObjectSearchList releaseCount];
-        return [self.data count]; // section 1 : résultats
+        return [VSObjectSearchList releaseCount];
     }
     return 1;
 }
@@ -66,30 +63,26 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    VSSearchCollectionViewCell *searchCell;
-
     
     static NSString *SearchCellIdentifier = @"SearchCellIdentifier";
     static NSString *ResultCellIdentifier = @"ResultCellIdentifier";
     
-    
-    UICollectionViewCell *cell;
-    
-    
     if (indexPath.section == 0) // si on est dans la section recherche
     {
-        searchCell = [collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
+       VSSearchCollectionViewCell *searchCell = (VSSearchCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:SearchCellIdentifier forIndexPath:indexPath];
         searchCell.searchBar.placeholder = @"Recherche d'album par titre, n° catalogue...";
         searchCell.searchBar.scopeButtonTitles = [NSMutableArray arrayWithObjects:@"Flags", @"Listeners", @"Stations", nil];
         searchCell.searchBar.showsScopeBar = YES;
         
-        cell = searchCell;
+        return searchCell;
     }
-    else // si on est dans la section résultat
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
+    else{
+        VSResultCollectionViewCell *resultCell = (VSResultCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:ResultCellIdentifier forIndexPath:indexPath];
+        VSReleaseObject *release = [VSObjectSearchList releaseObjectAtIndex:indexPath];
+        resultCell.thumb.image = [UIImage imageNamed:@"photo1"];
+        return resultCell;
+    }
 
-    
-    return cell;
 }
 
 #pragma mark UISearchBar delegate
@@ -125,9 +118,7 @@
 }
 
 -(void)searchObjectEndSearch:(BOOL)nextPage{
-    if(!nextPage){
-        [VSObjectSearchList nextPage];
-    }
+    [self.collectionView reloadData];
 }
 
 @end
